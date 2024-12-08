@@ -38,7 +38,12 @@ main {
     margin: auto;
 }
 
-section {
+main .container {
+    display: grid;
+    gap: 40px;
+}
+
+.wrapper {
     margin-bottom: 40px;
     padding: 20px;
     background-color: #1E1E1E;
@@ -46,11 +51,15 @@ section {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-section h3 {
+.wrapper h3 {
     border-bottom: 3px solid var(--primary-color);
     display: inline-block;
     margin-bottom: 20px;
     font-size: 1.8em;
+}
+
+.container{
+    width: 100%;
 }
 
 form {
@@ -66,6 +75,10 @@ input, textarea {
     background-color: var(--input-bg);
     color: var(--text-color);
     outline: 2px solid var(--text-color);
+}
+
+textarea {
+    resize: vertical;
 }
 
 input:focus, textarea:focus {
@@ -129,8 +142,12 @@ img:hover {
 }
 
 /* Telas menores: imagens em uma única coluna */
-@media (max-width: 768px) {
+@media (max-width: 450px) {
     .img_container {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
         grid-template-columns: 1fr;
     }
 }
@@ -139,5 +156,15 @@ img:hover {
 @media (min-width: 769px) {
     .img_container {
         grid-template-columns: 1fr 1fr;
+    }
+    
+    .container {
+        grid-template-columns: 40% 1fr;
+    }
+}
+
+@media (min-width: 1300px) {
+    .img_container {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
