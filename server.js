@@ -16,7 +16,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Endpoint para receber dados do formulário
 app.post('/api/formulario', (req, res) => {
     console.log('Dados recebidos:', req.body); // Exibe os dados no console
-    res.status(200).send('Dados recebidos com sucesso!'); // Resposta ao cliente
+    res.status(200).json({
+        message: 'Dados recebidos com sucesso!',
+        data: req.body
+    }); // Resposta ao cliente
 });
 
 // Iniciar o servidor
